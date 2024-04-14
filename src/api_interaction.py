@@ -26,9 +26,6 @@ def main(activity_type, start_time, end_time):
 
     headers = setup_api_call()
 
-    end_time = datetime_to_unix_timestamp(end_time)
-    start_time = datetime_to_unix_timestamp(start_time)
-
     # Parameters for the request
     params = {
         'before': datetime_to_unix_timestamp(end_time),
@@ -57,6 +54,9 @@ if __name__ == "__main__":
     parser.add_argument('start_time', type=str, help='Start date in YYYY-MM-DD format')
     parser.add_argument('end_time', type=str, help='End date in YYYY-MM-DD format')
 
+    
+
     args = parser.parse_args()
+    print(type(args.end_time))
 
     main(args.activity_type, args.start_time, args.end_time)
